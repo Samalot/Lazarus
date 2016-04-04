@@ -5,6 +5,7 @@ import com.ibm.icu.impl.duration.impl.Utils;
 import lazarus.main.init.LazarusItems;
 import lazarus.main.proxy.CommonProxy;
 import lazarus.utils.Config;
+import lazarus.utils.Reference;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;

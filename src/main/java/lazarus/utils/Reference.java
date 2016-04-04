@@ -1,5 +1,5 @@
 /*Imports*/
-package lazarus.main;
+package lazarus.utils;
 
 /*Configs*/
 public class Reference {
