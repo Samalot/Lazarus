@@ -1,6 +1,6 @@
 /*Imports*/
 package lazarus.main.init;
-import items.Amsollions_token;
+import lazarus.items.Amsollions_token;
 import lazarus.main.LazarusMod;
 import lazarus.main.Reference;
 import net.minecraft.client.Minecraft;
