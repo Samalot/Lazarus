@@ -1,5 +1,7 @@
 /*Imports*/
 package lazarus.main.init;
+import items.Amsollions_token;
+import lazarus.main.LazarusMod;
 import lazarus.main.Reference;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.model.ModelResourceLocation;
@@ -14,7 +16,7 @@ public class LazarusItems {
 	
 	/*Init items*/
 	public static void init(){
-		amsollions_token = new Item().setUnlocalizedName("amsollions_token");
+		amsollions_token = new Amsollions_token("amsollions_token");
 	}
 	
 	/*Register items*/
@@ -30,6 +32,6 @@ public class LazarusItems {
 	/*Register item render*/
 	public static void registerRender(Item item){
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
-		.register(item, 0, new ModelResourceLocation(Reference.MOD_ID + "+" + item.getUnlocalizedName().substring(5), "inventory"));
+	    .register(item, 0, new ModelResourceLocation(Reference.MOD_ID + ":" + item.getUnlocalizedName().substring(5), "inventory"));
 	}
 }

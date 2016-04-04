@@ -17,6 +17,9 @@ public class LazarusMod {
 	@SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS)
 	public static CommonProxy proxy; 
 	
+	/*Creative tab*/
+	public static final LazarusTab tabLazarus = new LazarusTab("tabLazarus");
+	
 	/*Pre Initialisation*/
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event){
