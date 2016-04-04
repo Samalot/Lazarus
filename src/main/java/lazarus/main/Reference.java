@@ -5,5 +5,5 @@ package lazarus.main;
 public class Reference {
 	public static final String MOD_ID = "lazarus";
 	public static final String MOD_NAME = "Lazarus";
-	public static final String VERSION = "0.1";
+	public static final String VERSION = "0.05";
 }

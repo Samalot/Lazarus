@@ -1,0 +1,16 @@
+[
+{
+  "modid": "lazarus",
+  "name": "Lazarus",
+  "description": "Discover the secrets of the Abyss.                ",
+  "version": "0.1",
+  "mcversion": "1.8",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Samalot","Petealot"],
+  "credits": "The Forge and FML guys.",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
