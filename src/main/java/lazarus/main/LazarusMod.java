@@ -17,13 +17,13 @@ public class LazarusMod {
 	
 	/*Initialisation*/
 	@EventHandler
-	public void preInit(FMLInitializationEvent event){
+	public void Init(FMLInitializationEvent event){
 			
 		}
 	
 	/*Post Initialisation*/
 	@EventHandler
-	public void preInit(FMLPostInitializationEvent event){
+	public void postInit(FMLPostInitializationEvent event){
 		
 	}
 }
