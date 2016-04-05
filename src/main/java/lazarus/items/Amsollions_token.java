@@ -2,7 +2,8 @@
 package lazarus.items;
 import java.util.List;
 import lazarus.main.LazarusMod;
-import lazarus.utils.KeyboardHelper;
+import lazarus.utils.handlers.KeyboardHelper;
+import lazarus.utils.handlers.SoundHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -44,6 +45,7 @@ public class Amsollions_token extends Item
 			{
 			player.inventory.consumeInventoryItem(Items.gold_ingot); /*consume ingot*/
 			player.addExperience(xpAmount); /*give xp*/
+			SoundHandler.lazarusPlaySound("random.levelup", 0.1F, 0.3F);
 			}
 		}
 		
@@ -51,7 +53,8 @@ public class Amsollions_token extends Item
 			if(player.inventory.hasItemStack(new ItemStack(Blocks.gold_block)))
 			{
 			player.inventory.consumeInventoryItem(Item.getItemFromBlock(Blocks.gold_block)); /*Take gold blocks from player*/	
-			player.addExperience(xpAmount*9); /*Give XP*/		
+			player.addExperience(xpAmount*9); /*Give XP*/	
+			SoundHandler.lazarusPlaySound("random.levelup", 0.1F, 0.3F);
 			}
 		}	
 		return par1ItemStack;

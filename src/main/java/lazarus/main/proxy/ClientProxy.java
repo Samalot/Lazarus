@@ -1,7 +1,7 @@
 /*Imports*/
 package lazarus.main.proxy;
 
-import lazarus.main.init.LazarusItems;
+import lazarus.main.LazarusItems;
 
 /*Main*/
 public class ClientProxy extends CommonProxy{

@@ -1,6 +1,5 @@
 /*Imports*/
 package lazarus.main;
-import lazarus.main.init.LazarusItems;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 

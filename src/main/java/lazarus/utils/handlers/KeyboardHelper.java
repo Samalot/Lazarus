@@ -1,4 +1,4 @@
-package lazarus.utils;
+package lazarus.utils.handlers;
 
 //General place to store keyboard press events.
 

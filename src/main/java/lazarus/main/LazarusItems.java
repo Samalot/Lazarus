@@ -1,10 +1,10 @@
 /*Imports*/
-package lazarus.main.init;
+package lazarus.main;
 import java.util.ArrayList;
 
 import lazarus.items.Amsollions_token;
 import lazarus.items.Token_Pouch;
-import lazarus.utils.Reference;
+import lazarus.utils.config.Reference;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
