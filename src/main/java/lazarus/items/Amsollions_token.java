@@ -1,6 +1,7 @@
 /*Imports*/
 package lazarus.items;
 import java.util.List;
+
 import lazarus.main.LazarusMod;
 import lazarus.utils.handlers.KeyboardHelper;
 import lazarus.utils.handlers.SoundHandler;
@@ -13,24 +14,19 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.config.Configuration;
 
 /*Main*/
-public class Amsollions_token extends Item
+public class Amsollions_token extends BaseItem
 {	
 	/*---------------------------------------- Variables ----------------------------------------*/
+	private static String name = "amsollions_token";
 	private int xpAmount = LazarusMod.lazarusConfig.get(Configuration.CATEGORY_GENERAL, "amsollionXPfromGold", 6).getInt();
-	
 	/*---------------------------------------- Constructor ----------------------------------------*/
-	public Amsollions_token(String unlocalizedName)
+	public Amsollions_token()
 	{	
-		super(); /*Super class*/
-		this.setUnlocalizedName(unlocalizedName); /*Set name*/		
-		this.setCreativeTab(LazarusMod.tabLazarus); /*Creative tab*/	
+		super(name, true);
 		this.setMaxStackSize(1); /*Stack size - max 1*/
 	}
 	
-	/*---------------------------------------- Make it shiny ----------------------------------------*/
-	public boolean hasEffect(ItemStack par1ItemStack){return true;}
-	
-	/*Tooltip*/
+	/*---------------------------------------- Tooltip ----------------------------------------*/
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4)
 	{

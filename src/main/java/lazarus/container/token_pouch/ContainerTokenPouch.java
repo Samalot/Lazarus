@@ -63,6 +63,9 @@ public class ContainerTokenPouch extends Container
 		ItemStack itemstack = null;
 		Slot slot = (Slot) this.inventorySlots.get(index);
 
+		
+		
+		
 		if (slot != null && slot.getHasStack())
 		{
 			ItemStack itemstack1 = slot.getStack();
@@ -96,10 +99,10 @@ public class ContainerTokenPouch extends Container
 				else if (index >= INV_START)
 				{
 					// place in custom inventory
-					if (!this.mergeItemStack(itemstack1, 0, ARMOR_START, false))
-					{
-						return null;
-					}
+						if (!this.mergeItemStack(itemstack1, 0, ARMOR_START, false))
+						{
+							return null;
+						}
 				}
 			}
 
@@ -136,7 +139,7 @@ public class ContainerTokenPouch extends Container
 	 */
 	@Override
 	protected boolean mergeItemStack(ItemStack stack, int start, int end, boolean backwards)
-	{
+	{	
 		boolean flag1 = false;
 		int k = (backwards ? end - 1 : start);
 		Slot slot;
