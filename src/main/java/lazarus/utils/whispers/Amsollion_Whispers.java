@@ -19,6 +19,6 @@ public class Amsollion_Whispers {
 	public static String randomWhsiper(){
 		Random random = new Random();
 		int index = random.nextInt(possibleWhsipers.length);
-		return possibleWhsipers[index];
+		return "mysterious whispers - \"" + possibleWhsipers[index] + "\"";
 	}
 }
