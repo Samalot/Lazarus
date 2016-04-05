@@ -3,7 +3,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import lazarus.container.AbstractInventory;
+import lazarus.items.Amsollions_token;
 import lazarus.items.Token_Pouch;
+import lazarus.items.Waning_token;
 
 public class InventoryTokenPouch extends AbstractInventory
 {
@@ -61,7 +63,14 @@ public class InventoryTokenPouch extends AbstractInventory
 
 	@Override
 	public boolean isItemValidForSlot(int slot, ItemStack stack) {
-		return !(stack.getItem() instanceof Token_Pouch);
+		
+		boolean answer = 
+				(stack.getItem() instanceof Amsollions_token)
+				||(stack.getItem() instanceof Waning_token)
+				;
+		
+		
+		return answer;
 	}
 
 	@Override

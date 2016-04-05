@@ -29,10 +29,10 @@ public class LazarusEventHandler {
 			}
 			/*Token Pouch opened*/
 			else if(event.gui.toString().contains("lazarus.container.token_pouch.GUI_Token_Pouch"))
-			{globalFlag_Token_Pouch_Open = 1;}
-			
+			{globalFlag_Token_Pouch_Open = 1;}		
 	}
 	
+	/*---------------------------------------- Listen for item pickup ----------------------------------------*/
 	@SubscribeEvent
 	public void onItemPickup(EntityItemPickupEvent event){
 		/*Amsollions Token*/
