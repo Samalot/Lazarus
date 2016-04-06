@@ -1,9 +1,10 @@
 /*Imports*/
 package lazarus.main;
-import lazarus.items.Amsollions_token;
+import lazarus.items.AmplifyingToken;
 import lazarus.items.BaseItem;
-import lazarus.items.Token_Pouch;
-import lazarus.items.Waning_token;
+import lazarus.items.GildedToken;
+import lazarus.items.TokenPouch;
+import lazarus.items.WaningToken;
 import lazarus.utils.config.Reference;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.model.ModelBakery;
@@ -15,26 +16,29 @@ public class LazarusItems
 {
 	
 	/*---------------------------------------- Items variables ----------------------------------------*/
-	public static Amsollions_token amsollions_token;
-	public static Waning_token waning_token;
+	public static GildedToken gilded_token;
+	public static WaningToken waning_token;
+	public static AmplifyingToken amplifying_token;
 	
-	public static Token_Pouch token_pouch;
+	public static TokenPouch token_pouch;
 	
 	
 	/*---------------------------------------- Init items ----------------------------------------*/
 	public static void init()
 	{
-		amsollions_token = new Amsollions_token();
-		waning_token = new Waning_token();
+		gilded_token = new GildedToken();
+		waning_token = new WaningToken();
+		amplifying_token = new AmplifyingToken();
 		
-		token_pouch = new Token_Pouch();
+		token_pouch = new TokenPouch();
 	}
 	
 	/*---------------------------------------- Register items ----------------------------------------*/
 	public static void register()
 	{
-		GameRegistry.registerItem(amsollions_token, amsollions_token.getUnlocalizedName().substring(5));
+		GameRegistry.registerItem(gilded_token, gilded_token.getUnlocalizedName().substring(5));
 		GameRegistry.registerItem(waning_token, waning_token.getUnlocalizedName().substring(5));
+		GameRegistry.registerItem(amplifying_token, amplifying_token.getUnlocalizedName().substring(5));
 		
 		GameRegistry.registerItem(token_pouch, token_pouch.getUnlocalizedName().substring(5));
 	}
@@ -42,8 +46,9 @@ public class LazarusItems
 	/*---------------------------------------- Register item renders ----------------------------------------*/
 	public static void registerRenders()
 	{
-		registerRender(amsollions_token, 0, "");
+		registerRender(gilded_token, 0, "");
 		registerRender(waning_token, 0, "");
+		registerRender(amplifying_token, 0, "");
 		
 		registerRender(token_pouch, 0, "");
 		registerRender(token_pouch, 1, "_open");

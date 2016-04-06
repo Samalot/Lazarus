@@ -9,7 +9,7 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 /*Main*/
-public class GUI_Token_Pouch extends GuiContainer
+public class GuiTokenPouch extends GuiContainer
 {
 	/** x and y size of the inventory window in pixels. Defined as float, passed as int
 	 *  These are used for drawing the player model. */
@@ -23,7 +23,7 @@ public class GUI_Token_Pouch extends GuiContainer
 	/** The inventory to render on screen */
 	private final InventoryTokenPouch inventory;
 
-	public GUI_Token_Pouch(EntityPlayer player, InventoryPlayer inv1, InventoryTokenPouch inv2)
+	public GuiTokenPouch(EntityPlayer player, InventoryPlayer inv1, InventoryTokenPouch inv2)
 	{
 		super(new ContainerTokenPouch(player, inv1, inv2));
 		this.inventory = inv2;

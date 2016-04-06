@@ -4,7 +4,7 @@ package lazarus.utils.handlers;
 
 import org.lwjgl.input.Keyboard;
 
-public class KeyboardHelper {
+public class KeyboardHandler {
 
 	//Call these to detect if a key is pressed. To add more keys, follow the same format.
 

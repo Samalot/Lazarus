@@ -2,7 +2,7 @@
 package lazarus.main.proxy;
 
 import lazarus.container.token_pouch.ContainerTokenPouch;
-import lazarus.container.token_pouch.GUI_Token_Pouch;
+import lazarus.container.token_pouch.GuiTokenPouch;
 import lazarus.container.token_pouch.InventoryTokenPouch;
 import lazarus.main.LazarusMod;
 import net.minecraft.entity.player.EntityPlayer;
@@ -39,7 +39,7 @@ public class CommonProxy implements IGuiHandler{
 		@Override
 		public Object getClientGuiElement(int guiId, EntityPlayer player, World world, int x, int y, int z) {
 			if (guiId == LazarusMod.GUI_ITEM_INV)  {
-				return new GUI_Token_Pouch(player, player.inventory, new InventoryTokenPouch(player.getHeldItem()));
+				return new GuiTokenPouch(player, player.inventory, new InventoryTokenPouch(player.getHeldItem()));
 			} else {
 				return null;
 			}

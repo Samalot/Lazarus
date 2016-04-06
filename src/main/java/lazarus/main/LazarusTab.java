@@ -15,7 +15,7 @@ public class LazarusTab extends CreativeTabs{
 	/*Icon for tab*/
 	@Override
 	public Item getTabIconItem() {
-		return LazarusItems.amsollions_token;
+		return LazarusItems.gilded_token;
 	}
 
 }

@@ -3,24 +3,26 @@ package lazarus.items;
 import java.util.List;
 
 import lazarus.main.LazarusMod;
-import lazarus.utils.handlers.KeyboardHelper;
+import lazarus.utils.handlers.KeyboardHandler;
 import lazarus.utils.handlers.SoundHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 import net.minecraftforge.common.config.Configuration;
 
 /*Main*/
-public class Amsollions_token extends BaseItem
+public class GildedToken extends BaseItem
 {	
 	/*---------------------------------------- Variables ----------------------------------------*/
-	private static String name = "amsollions_token";
+	private static String name = "gilded_token";
 	private int xpAmount = LazarusMod.lazarusConfig.get(Configuration.CATEGORY_GENERAL, "amsollionXPfromGold", 6).getInt();
 	/*---------------------------------------- Constructor ----------------------------------------*/
-	public Amsollions_token()
+	public GildedToken()
 	{	
 		super(name, true);
 		this.setMaxStackSize(1); /*Stack size - max 1*/
@@ -36,7 +38,7 @@ public class Amsollions_token extends BaseItem
 	/*---------------------------------------- On right click ----------------------------------------*/
 	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer player)
     {
-		if(!KeyboardHelper.isShiftDown()){ /*If player is not holding shift*/
+		if(!KeyboardHandler.isShiftDown()){ /*If player is not holding shift*/
 			if(player.inventory.hasItem(Items.gold_ingot)) /*If player has golden ingot*/
 			{
 			player.inventory.consumeInventoryItem(Items.gold_ingot); /*consume ingot*/
@@ -45,7 +47,7 @@ public class Amsollions_token extends BaseItem
 			}
 		}
 		
-		if(KeyboardHelper.isShiftDown()){ /*If player is holding shift*/
+		if(KeyboardHandler.isShiftDown()){ /*If player is holding shift*/
 			if(player.inventory.hasItemStack(new ItemStack(Blocks.gold_block)))
 			{
 			player.inventory.consumeInventoryItem(Item.getItemFromBlock(Blocks.gold_block)); /*Take gold blocks from player*/	

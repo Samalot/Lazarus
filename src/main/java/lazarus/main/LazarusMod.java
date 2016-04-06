@@ -27,8 +27,8 @@ public class LazarusMod
 	public static Configuration lazarusConfig; /* Config */
 	@Mod.Instance(Reference.MOD_ID) /* Instance */
 	public static LazarusMod instance;
-	private static int modGuiIndex = 10; /* This is used to keep track of GUIs that we make */
-	public static final int GUI_CUSTOM_INV = modGuiIndex++, GUI_ITEM_INV = modGuiIndex++; /* Custom GUI indices: */
+	private static int modGuiIndex = 0; /* This is used to keep track of GUIs that we make */
+	public static final int GUI_ITEM_INV = modGuiIndex++; /* Custom GUI indices: */
 	
 	
 	/*---------------------------------------- Pre Initialisation ----------------------------------------*/
