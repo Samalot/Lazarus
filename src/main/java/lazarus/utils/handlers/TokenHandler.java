@@ -10,11 +10,6 @@ import net.minecraft.potion.PotionEffect;
 
 /*Main*/
 public class TokenHandler {
-
-	
-	
-	
-	
 	/*---------------------------------------- Waning Token ----------------------------------------*/
 	public static void waningToken(Entity entity)
 	{
@@ -36,17 +31,7 @@ public class TokenHandler {
 				else if(index == 2){player.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 100, 1));}
 				else if(index == 3){player.addPotionEffect(new PotionEffect(Potion.confusion.id, 100, 1));}
 				else if(index == 4){player.addPotionEffect(new PotionEffect(Potion.weakness.id, 100, 1));}
-			
-			
 			}	
 		}										
-	}
-	
-	
-	
-	
-	
-	
-	
-	
+	}	
 }

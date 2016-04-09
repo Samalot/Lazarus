@@ -1,6 +1,6 @@
 /*Imports*/
 package lazarus.utils.config;
-import lazarus.main.LazarusMod;
+import lazarus.main.LazarusMain;
 import net.minecraftforge.common.config.Configuration;
 
 /*Main*/

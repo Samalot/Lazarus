@@ -2,10 +2,11 @@
 package lazarus.items;
 import java.util.ArrayList;
 
-import lazarus.main.LazarusMod;
+import lazarus.main.LazarusMain;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 
 /*Main*/
 public class BaseItem extends Item
@@ -22,7 +23,7 @@ public class BaseItem extends Item
 		super(); /*Super class*/
 		this.name = name; /*Set name*/	
 		this.setUnlocalizedName(name); /*Set unlocalized name*/		
-		this.setCreativeTab(LazarusMod.tabLazarus); /*Creative tab*/
+		this.setCreativeTab(LazarusMain.tabLazarus); /*Creative tab*/
 		this.isShiny = isShiny; /*Set is shiny*/
 	}
 	

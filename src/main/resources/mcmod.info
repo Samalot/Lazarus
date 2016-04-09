@@ -1,14 +1,14 @@
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
+  "modid": "lazarus",
+  "name": "Lazarus",
+  "description": "A world between worlds, what treasures  does it hold?.",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
+  "authorList": ["Samalot","Petealot"],
+  "credits": "The Forge and FML guys, coolAlias for his awesome tutorials!",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []

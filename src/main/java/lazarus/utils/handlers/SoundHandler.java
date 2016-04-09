@@ -3,13 +3,27 @@ package lazarus.utils.handlers;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
 /*Main*/
 public class SoundHandler {
-	public static void lazarusPlaySound(String name, float pitch, float volume){
-		World currentWorld = Minecraft.getMinecraft().theWorld; 
-		EntityPlayerSP currentPlayer = Minecraft.getMinecraft().thePlayer; 
+	
+	private World currentWorld;
+	private EntityPlayer currentPlayer;
+	private String name;
+	private float pitch;
+	private float volume;
+	
+	public SoundHandler(String name, float pitch, float volume)
+	{
+		this.name = name;
+		this.pitch = pitch;
+		this.volume = volume;
+		lazarusPlaySound(name, pitch, volume);
+	}
+	
+	public void lazarusPlaySound(String name, float pitch, float volume){
 		currentWorld.playSound(
 				currentPlayer.getPosition().getX(), 
 				currentPlayer.getPosition().getY(),

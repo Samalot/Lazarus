@@ -2,9 +2,8 @@
 package lazarus.main.proxy;
 
 import lazarus.container.token_pouch.ContainerTokenPouch;
-import lazarus.container.token_pouch.GuiTokenPouch;
 import lazarus.container.token_pouch.InventoryTokenPouch;
-import lazarus.main.LazarusMod;
+import lazarus.main.LazarusMain;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.IThreadListener;
 import net.minecraft.world.World;
@@ -28,8 +27,9 @@ public class CommonProxy implements IGuiHandler{
 		public IThreadListener getThreadFromContext(MessageContext ctx) {return ctx.getServerHandler().playerEntity.getServerForPlayer();}
 
 		@Override
-		public Object getServerGuiElement(int guiId, EntityPlayer player, World world, int x, int y, int z) {
-			if (guiId == LazarusMod.GUI_ITEM_INV)  {
+		public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
+			
+			if (ID == LazarusMain.GUI_ITEM_INV)  {
 				return new ContainerTokenPouch(player, player.inventory, new InventoryTokenPouch(player.getHeldItem()));
 			} else {
 				return null;
@@ -37,16 +37,9 @@ public class CommonProxy implements IGuiHandler{
 		}
 
 		@Override
-		public Object getClientGuiElement(int guiId, EntityPlayer player, World world, int x, int y, int z) {
-			if (guiId == LazarusMod.GUI_ITEM_INV)  {
-				return new GuiTokenPouch(player, player.inventory, new InventoryTokenPouch(player.getHeldItem()));
-			} else {
-				return null;
-			}
-		}
-		
-		
-		
+		public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {return null;}
+
+	
 		
 		
 }
