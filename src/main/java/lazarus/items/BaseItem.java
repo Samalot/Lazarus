@@ -25,6 +25,8 @@ public class BaseItem extends Item
 		this.setUnlocalizedName(name); /*Set unlocalized name*/		
 		this.setCreativeTab(LazarusMain.tabLazarus); /*Creative tab*/
 		this.isShiny = isShiny; /*Set is shiny*/
+		this.setMaxStackSize(1); /*Set stack size to 1*/
+		this.setMaxDamage(0);  /*Set damage of item to 0*/
 	}
 	
 	/*---------------------------------------- Make it shiny ----------------------------------------*/

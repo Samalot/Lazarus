@@ -3,6 +3,7 @@ item.gilded_token.name=Gilded Token
 item.waning_token.name=Waning Token
 item.amplifying_token.name=Amplifying Token
 item.quelling_token.name=Quelling Token
+item.cowardice_token.name=Cowardly Token
 
 item.token_pouch.name=Token Pouch
 item.token_pouch_open.name=Token Pouch

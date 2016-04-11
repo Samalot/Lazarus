@@ -1,3 +1,10 @@
+//========================================================//
+// The following code is taken from CoolAlias.            //
+// https://github.com/coolAlias                           //
+// His code is available under the GPL3 license, a copy of//
+// the license can be found in the doccuments folder.     //
+//========================================================//
+
 /*Imports*/
 package lazarus.container.token_pouch;
 import lazarus.container.SlotArmour;

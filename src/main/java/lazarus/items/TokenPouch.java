@@ -28,31 +28,23 @@ public class TokenPouch extends BaseItem
 	private static String name = "token_pouch";
 	private List<String> tokenKeys = Arrays.asList("waning", "gilded","amplifying");
 
-	
 	/*---------------------------------------- Constructor ----------------------------------------*/
-	public TokenPouch()
-	{	
-		super(name, false); /*Super class*/	
-		this.setMaxStackSize(1); /*Stack size - max 1*/
-		this.setMaxDamage(0); 
-	}
-	
-	
+	public TokenPouch(){super(name, false);}
 	
 	/*---------------------------------------- On right click ----------------------------------------*/
-	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer player)
+	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
 	{	
-		if (!par2World.isRemote) 
+		if (!world.isRemote) 
 		{
 			if (!player.isSneaking()) 
 			{
 				player.openGui(LazarusMain.instance, LazarusMain.GUI_ITEM_INV, player.worldObj, 0, 0, 0);
-				System.out.println(par1ItemStack.getTagCompound());
+				System.out.println(stack.getTagCompound());
 	
 			} 
 			else {new InventoryTokenPouch(player.getHeldItem());}
 		}
-		return par1ItemStack;
+		return stack;
 	}
 	
 	/*---------------------------------------- Change model ----------------------------------------*/

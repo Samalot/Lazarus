@@ -1,0 +1,135 @@
+---- Minecraft Crash Report ----
+// On the bright side, I bought you a teddy bear!
+
+Time: 10/04/16 22:07
+Description: Ticking entity
+
+java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(Unknown Source)
+	at java.util.ArrayList$Itr.next(Unknown Source)
+	at lazarus.utils.handlers.MainEventHandler.onPearlUpdate(MainEventHandler.java:141)
+	at net.minecraftforge.fml.common.eventhandler.ASMEventHandler_10_MainEventHandler_onPearlUpdate_PlayerTickEvent.invoke(.dynamic)
+	at net.minecraftforge.fml.common.eventhandler.ASMEventHandler.invoke(ASMEventHandler.java:55)
+	at net.minecraftforge.fml.common.eventhandler.EventBus.post(EventBus.java:140)
+	at net.minecraftforge.fml.common.FMLCommonHandler.onPlayerPreTick(FMLCommonHandler.java:386)
+	at net.minecraft.entity.player.EntityPlayer.onUpdate(EntityPlayer.java:259)
+	at net.minecraft.client.entity.EntityPlayerSP.onUpdate(EntityPlayerSP.java:165)
+	at net.minecraft.world.World.updateEntityWithOptionalForce(World.java:2031)
+	at net.minecraft.world.World.updateEntity(World.java:1997)
+	at net.minecraft.world.World.updateEntities(World.java:1823)
+	at net.minecraft.client.Minecraft.runTick(Minecraft.java:2184)
+	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1087)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:376)
+	at net.minecraft.client.main.Main.main(Main.java:117)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at net.minecraftforge.gradle.GradleStartCommon.launch(Unknown Source)
+	at GradleStart.main(Unknown Source)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Stacktrace:
+	at java.util.ArrayList$Itr.checkForComodification(Unknown Source)
+	at java.util.ArrayList$Itr.next(Unknown Source)
+	at lazarus.utils.handlers.MainEventHandler.onPearlUpdate(MainEventHandler.java:141)
+	at net.minecraftforge.fml.common.eventhandler.ASMEventHandler_10_MainEventHandler_onPearlUpdate_PlayerTickEvent.invoke(.dynamic)
+	at net.minecraftforge.fml.common.eventhandler.ASMEventHandler.invoke(ASMEventHandler.java:55)
+	at net.minecraftforge.fml.common.eventhandler.EventBus.post(EventBus.java:140)
+	at net.minecraftforge.fml.common.FMLCommonHandler.onPlayerPreTick(FMLCommonHandler.java:386)
+	at net.minecraft.entity.player.EntityPlayer.onUpdate(EntityPlayer.java:259)
+	at net.minecraft.client.entity.EntityPlayerSP.onUpdate(EntityPlayerSP.java:165)
+	at net.minecraft.world.World.updateEntityWithOptionalForce(World.java:2031)
+	at net.minecraft.world.World.updateEntity(World.java:1997)
+
+-- Entity being ticked --
+Details:
+	Entity Type: null (net.minecraft.client.entity.EntityPlayerSP)
+	Entity ID: 88
+	Entity Name: Samalot
+	Entity's Exact location: -159.67, 4.08, 1460.65
+	Entity's Block location: -160.00,4.00,1460.00 - World: (-160,4,1460), Chunk: (at 0,0,4 in -10,91; contains blocks -160,0,1456 to -145,255,1471), Region: (-1,2; contains chunks -32,64 to -1,95, blocks -512,0,1024 to -1,255,1535)
+	Entity's Momentum: 0.00, 0.00, 0.00
+	Entity's Rider: ~~ERROR~~ NullPointerException: null
+	Entity's Vehicle: ~~ERROR~~ NullPointerException: null
+Stacktrace:
+	at net.minecraft.world.World.updateEntities(World.java:1823)
+
+-- Affected level --
+Details:
+	Level name: MpServer
+	All players: 1 total; [EntityPlayerSP['Samalot'/88, l='MpServer', x=-159.67, y=4.08, z=1460.65]]
+	Chunk stats: MultiplayerChunkCache: 510, 510
+	Level seed: 0
+	Level generator: ID 01 - flat, ver 0. Features enabled: false
+	Level generator options: 
+	Level spawn location: 213.00,4.00,1702.00 - World: (213,4,1702), Chunk: (at 5,0,6 in 13,106; contains blocks 208,0,1696 to 223,255,1711), Region: (0,3; contains chunks 0,96 to 31,127, blocks 0,0,1536 to 511,255,2047)
+	Level time: 23372 game time, 23372 day time
+	Level dimension: 0
+	Level storage version: 0x00000 - Unknown?
+	Level weather: Rain time: 0 (now: true), thunder time: 0 (now: false)
+	Level game mode: Game mode: survival (ID 0). Hardcore: false. Cheats: false
+	Forced entities: 2 total; [EntityPlayerSP['Samalot'/88, l='MpServer', x=-159.67, y=4.08, z=1460.65], EntityEnderPearl['entity.ThrownEnderpearl.name'/13631, l='MpServer', x=-162.02, y=4.38, z=1462.33]]
+	Retry entities: 0 total; []
+	Server brand: fml,forge
+	Server type: Integrated singleplayer server
+Stacktrace:
+	at net.minecraft.client.multiplayer.WorldClient.addWorldInfoToCrashReport(WorldClient.java:392)
+	at net.minecraft.client.Minecraft.addGraphicsAndWorldToCrashReport(Minecraft.java:2614)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:398)
+	at net.minecraft.client.main.Main.main(Main.java:117)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at net.minecraftforge.gradle.GradleStartCommon.launch(Unknown Source)
+	at GradleStart.main(Unknown Source)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.8
+	Operating System: Windows 7 (amd64) version 6.1
+	Java Version: 1.8.0_77, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 468661272 bytes (446 MB) / 1030225920 bytes (982 MB) up to 3817865216 bytes (3641 MB)
+	JVM Flags: 0 total; 
+	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0
+	FML: MCP v9.10 FML v8.0.99.99 Minecraft Forge 11.14.4.1563 4 mods loaded, 4 mods active
+	States: 'U' = Unloaded 'L' = Loaded 'C' = Constructed 'H' = Pre-initialized 'I' = Initialized 'J' = Post-initialized 'A' = Available 'D' = Disabled 'E' = Errored
+	UCHIJAAAA	mcp{9.05} [Minecraft Coder Pack] (minecraft.jar) 
+	UCHIJAAAA	FML{8.0.99.99} [Forge Mod Loader] (forgeSrc-1.8-11.14.4.1563.jar) 
+	UCHIJAAAA	Forge{11.14.4.1563} [Minecraft Forge] (forgeSrc-1.8-11.14.4.1563.jar) 
+	UCHIJAAAA	lazarus{0.05} [Lazarus] (bin) 
+	Loaded coremods (and transformers): 
+	GL info: ' Vendor: 'ATI Technologies Inc.' Version: '4.5.13416 Compatibility Profile Context 15.300.1025.0' Renderer: 'AMD Radeon HD 7800 Series'
+	Launched Version: 1.8
+	LWJGL: 2.9.1
+	OpenGL: AMD Radeon HD 7800 Series GL version 4.5.13416 Compatibility Profile Context 15.300.1025.0, ATI Technologies Inc.
+	GL Caps: Using GL 1.3 multitexturing.
+Using GL 1.3 texture combiners.
+Using framebuffer objects because OpenGL 3.0 is supported and separate blending is supported.
+Shaders are available because OpenGL 2.1 is supported.
+VBOs are available because OpenGL 1.5 is supported.
+
+	Using VBOs: No
+	Is Modded: Definitely; Client brand changed to 'fml,forge'
+	Type: Client (map_client.txt)
+	Resource Packs: []
+	Current Language: English (US)
+	Profiler Position: N/A (disabled)

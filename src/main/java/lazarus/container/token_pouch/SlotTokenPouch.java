@@ -1,8 +1,15 @@
+//========================================================//
+// The following code is taken from CoolAlias.            //
+// https://github.com/coolAlias                           //
+// His code is available under the GPL3 license, a copy of//
+// the license can be found in the doccuments folder.     //
+//========================================================//
+
 /*Imports*/
 package lazarus.container.token_pouch;
-import lazarus.items.AmplifyingToken;
-import lazarus.items.GildedToken;
-import lazarus.items.WaningToken;
+import lazarus.items.tokens.AmplifyingToken;
+import lazarus.items.tokens.GildedToken;
+import lazarus.items.tokens.WaningToken;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;

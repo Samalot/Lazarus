@@ -1,12 +1,19 @@
+//========================================================//
+// The following code is taken from CoolAlias.            //
+// https://github.com/coolAlias                           //
+// His code is available under the GPL3 license, a copy of//
+// the license can be found in the doccuments folder.     //
+//========================================================//
+
 package lazarus.container.token_pouch;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import lazarus.container.AbstractInventory;
-import lazarus.items.AmplifyingToken;
-import lazarus.items.GildedToken;
 import lazarus.items.TokenPouch;
-import lazarus.items.WaningToken;
+import lazarus.items.tokens.AmplifyingToken;
+import lazarus.items.tokens.GildedToken;
+import lazarus.items.tokens.WaningToken;
 
 public class InventoryTokenPouch extends AbstractInventory
 {
