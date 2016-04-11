@@ -1,3 +1,8 @@
+You may re-distribute this mod or use it in a modpack without any
+permission from us. However, we are excited for out mod to be out
+there and if you do use this mod in your pack, it would be awesome
+if you would let us know! 
+
 This file is part of the Lazarus Mod, a modification for the game
 Minecraft, built using Forge. 
 
