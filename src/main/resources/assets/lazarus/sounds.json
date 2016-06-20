@@ -1,3 +1,4 @@
 {
-    "spooky": { "category": "master",  "sounds": [ {"name": "spooky","stream": true}] }
+    "spooky": { "category": "master",  "sounds": [ {"name": "spooky","stream": true}] },
+    "laugh": { "category": "master",  "sounds": [ {"name": "laugh","stream": true}] }
 }

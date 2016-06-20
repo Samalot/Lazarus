@@ -1,38 +1,38 @@
-[17:15:54] [main/INFO]: Logging in with username & password
-[17:15:57] [Client thread/INFO]: Setting user: Samalot
-[17:15:58] [Client thread/INFO]: LWJGL Version: 2.9.1
-[17:16:00] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Lazarus
-[17:16:01] [Sound Library Loader/INFO]: Starting up SoundSystem...
-[17:16:01] [Thread-9/INFO]: Initializing LWJGL OpenAL
-[17:16:01] [Thread-9/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
-[17:16:01] [Thread-9/INFO]: OpenAL initialized.
-[17:16:01] [Sound Library Loader/INFO]: Sound engine started
-[17:16:03] [Client thread/INFO]: Created: 16x16 textures-atlas
-[17:16:04] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Lazarus
-[17:16:04] [Client thread/INFO]: SoundSystem shutting down...
-[17:16:04] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com
-[17:16:04] [Sound Library Loader/INFO]: Starting up SoundSystem...
-[17:16:04] [Thread-11/INFO]: Initializing LWJGL OpenAL
-[17:16:04] [Thread-11/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
-[17:16:04] [Thread-11/INFO]: OpenAL initialized.
-[17:16:04] [Sound Library Loader/INFO]: Sound engine started
-[17:16:06] [Client thread/INFO]: Created: 512x512 textures-atlas
-[17:16:32] [Server thread/INFO]: Starting integrated minecraft server version 1.8
-[17:16:32] [Server thread/INFO]: Generating keypair
-[17:16:33] [Server thread/INFO]: Preparing start region for level 0
-[17:16:33] [Server thread/INFO]: Changing view distance to 12, from 10
-[17:16:34] [Server thread/INFO]: Samalot[local:E:2fe8831a] logged in with entity id 94 at (126.8949262043217, 4.0, 84.02530254113069)
-[17:16:34] [Server thread/INFO]: Samalot joined the game
-[17:16:59] [Server thread/INFO]: Saving and pausing game...
-[17:16:59] [Server thread/INFO]: Saving chunks for level 'New World'/Overworld
-[17:16:59] [Server thread/INFO]: Saving chunks for level 'New World'/Nether
-[17:16:59] [Server thread/INFO]: Saving chunks for level 'New World'/The End
-[17:17:09] [Client thread/INFO]: Stopping!
-[17:17:09] [Client thread/INFO]: SoundSystem shutting down...
-[17:17:09] [Server thread/INFO]: Stopping server
-[17:17:09] [Server thread/INFO]: Saving players
-[17:17:09] [Server thread/INFO]: Saving worlds
-[17:17:09] [Server thread/INFO]: Saving chunks for level 'New World'/Overworld
-[17:17:09] [Server thread/INFO]: Saving chunks for level 'New World'/Nether
-[17:17:09] [Server thread/INFO]: Saving chunks for level 'New World'/The End
-[17:17:09] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com
+[22:40:22] [main/INFO]: Logging in with username & password
+[22:40:24] [Client thread/INFO]: Setting user: Samalot
+[22:40:26] [Client thread/INFO]: LWJGL Version: 2.9.1
+[22:40:29] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Lazarus
+[22:40:29] [Sound Library Loader/INFO]: Starting up SoundSystem...
+[22:40:30] [Thread-9/INFO]: Initializing LWJGL OpenAL
+[22:40:30] [Thread-9/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[22:40:30] [Thread-9/INFO]: OpenAL initialized.
+[22:40:30] [Sound Library Loader/INFO]: Sound engine started
+[22:40:31] [Client thread/INFO]: Created: 16x16 textures-atlas
+[22:40:32] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Lazarus
+[22:40:32] [Client thread/INFO]: SoundSystem shutting down...
+[22:40:32] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com
+[22:40:32] [Sound Library Loader/INFO]: Starting up SoundSystem...
+[22:40:32] [Thread-11/INFO]: Initializing LWJGL OpenAL
+[22:40:32] [Thread-11/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[22:40:32] [Thread-11/INFO]: OpenAL initialized.
+[22:40:33] [Sound Library Loader/INFO]: Sound engine started
+[22:40:34] [Client thread/INFO]: Created: 512x512 textures-atlas
+[22:40:39] [Server thread/INFO]: Starting integrated minecraft server version 1.8
+[22:40:39] [Server thread/INFO]: Generating keypair
+[22:40:39] [Server thread/INFO]: Preparing start region for level 0
+[22:40:39] [Server thread/INFO]: Changing view distance to 12, from 10
+[22:40:40] [Server thread/INFO]: Samalot[local:E:5f24fda6] logged in with entity id 95 at (626.367507747894, 4.0, 928.3090520030331)
+[22:40:40] [Server thread/INFO]: Samalot joined the game
+[22:41:01] [Server thread/INFO]: Saving and pausing game...
+[22:41:01] [Server thread/INFO]: Saving chunks for level 'New World'/Overworld
+[22:41:01] [Server thread/INFO]: Saving chunks for level 'New World'/Nether
+[22:41:01] [Server thread/INFO]: Saving chunks for level 'New World'/The End
+[22:41:01] [Server thread/INFO]: Stopping server
+[22:41:01] [Server thread/INFO]: Saving players
+[22:41:01] [Server thread/INFO]: Saving worlds
+[22:41:01] [Server thread/INFO]: Saving chunks for level 'New World'/Overworld
+[22:41:01] [Server thread/INFO]: Saving chunks for level 'New World'/Nether
+[22:41:01] [Server thread/INFO]: Saving chunks for level 'New World'/The End
+[22:41:03] [Client thread/INFO]: Stopping!
+[22:41:03] [Client thread/INFO]: SoundSystem shutting down...
+[22:41:03] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com

@@ -1,15 +1,15 @@
 /*Imports*/
 package lazarus.main;
-import lazarus.items.AbyssalPearl;
 import lazarus.items.BaseItem;
-import lazarus.items.TokenPouch;
+import lazarus.items.other.AbyssalPearl;
+import lazarus.items.other.TokenPouch;
 import lazarus.items.tokens.AmplifyingToken;
 import lazarus.items.tokens.CowardiceToken;
 import lazarus.items.tokens.DormantToken;
 import lazarus.items.tokens.GildedToken;
 import lazarus.items.tokens.QuellingToken;
 import lazarus.items.tokens.WaningToken;
-import lazarus.utils.config.Reference;
+import lazarus.utilities.Reference;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;

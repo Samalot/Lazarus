@@ -2,7 +2,7 @@
 package lazarus.potions;
 import java.util.Random;
 
-import lazarus.utils.handlers.PotionHandler;
+import lazarus.utilities.handlers.PotionHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.Potion;
 import net.minecraft.util.EnumParticleTypes;

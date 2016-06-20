@@ -1,10 +1,11 @@
 /*Imports*/
 package lazarus.items.tokens;
 
+import java.util.Arrays;
 import java.util.List;
 
-import lazarus.items.BaseItem;
-import lazarus.utils.handlers.NBTHandler;
+import lazarus.items.BaseToken;
+import lazarus.utilities.handlers.NBTHandler;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -14,13 +15,24 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 /*Main*/
-public class AmplifyingToken extends BaseItem{
+public class AmplifyingToken extends BaseToken
+{
 	/*---------------------------------------- Variables ----------------------------------------*/
 	public static String name = "amplifying_token";
-	
+
 	/*---------------------------------------- Constructor ----------------------------------------*/
-	public AmplifyingToken(){super(name, true);}
-	
+	public AmplifyingToken()
+	{
+		super(name);
+		this.amplifiers=Arrays.asList(1.00, 1.25, 1.50, 1.75, 2.00, 2.50);
+		this.description = 
+				"Damage delt when wielding"
+						+ "\nthis token is multiplied"
+						+ "\nby the amplifier, however"
+						+ "\nso is damage taken.";
+		/*"-------------------------§§§"*/
+	}
+
 	/*---------------------------------------- Tooltip ----------------------------------------*/
 	@Override
 	@SideOnly(Side.CLIENT)
@@ -31,20 +43,21 @@ public class AmplifyingToken extends BaseItem{
 		{
 			int rarity = stack.getTagCompound().getInteger("rarity");
 			list.add("Rarity: " + NBTHandler.getRarityInfo(rarity));
+			list.add("§7§opress §c§oSpace §7§ofor §7§omore §7§oinfo");
 		}
-		else{list.add("§oBecome a glass cannon");}
+		else{list.add("§oBecome a glass cannon");list.add("§7§opress §c§oSpace §7§ofor §7§omore §7§oinfo");}
 	}
-	
+
 	/*---------------------------------------- On item creation ----------------------------------------*/
 	public void onUpdate(ItemStack stack, World world, Entity entity, int par4, boolean par5)
 	{
 		if(!stack.hasTagCompound()){NBTHandler.tokenNBT(stack);}	
 	}
-	
+
 	/*---------------------------------------- On attack ----------------------------------------*/
-	public static void onAttack(LivingHurtEvent event, EntityPlayer player){event.ammount *= 5;}
-	
+	public static double onAttack(){return 2;}
+
 	/*---------------------------------------- On hurt ----------------------------------------*/
-	public static void onHurt(LivingHurtEvent event, EntityPlayer player){event.ammount *= 5;}
+	public static double onHurt(){return 3;}
 }
 
