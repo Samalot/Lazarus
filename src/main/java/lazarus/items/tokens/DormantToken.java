@@ -23,11 +23,7 @@ public class DormantToken extends BaseToken
 	{
 		super(name);
 		this.amplifiers=Arrays.asList(0.00, 0.00, 0.00, 0.00, 0.00, 0.00);
-		this.description = "The base to all tokens, "
-				+ "\nperform different rituals "
-				+ "\nto infuse it with Abyssal "
-				+ "\nenergy and transform it "
-				+ "\ninto something far greater!";
+		this.description = "The base to all tokens, perform different rituals to infuse it with Abyssal energy and transform it into something far greater!";
 		/*"-------------------------"*/
 	}
 

@@ -1,4 +1,4 @@
-/**---------- Imports ----------**/
+/**=============== Imports ===============**/
 package lazarus.utilities.handlers;
 import lazarus.items.other.TokenPouch;
 import lazarus.items.tokens.AmplifyingToken;
@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 
-/**---------- Main ----------**/
+/**=============== Main ===============**/
 public class InventoryHandler 
 {
 	
@@ -29,8 +29,8 @@ public class InventoryHandler
 				/*Pouch with inventory*/
 				else if(currentItem instanceof TokenPouch && currentItemStack.hasTagCompound() && currentItemStack.getTagCompound().hasKey("ItemInventory"))
 				{
-					NBTTagCompound itemInv = currentItemStack.getTagCompound();
-					if(itemInv.getBoolean(key)){flag = true;}
+					NBTTagCompound itemInv = currentItemStack.getTagCompound();	
+					if(TokenPouch.detectInventory(currentItemStack, key)){flag = true;}
 				}		
 			}
 		}

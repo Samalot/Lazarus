@@ -17,5 +17,11 @@ public class LazarusTab extends CreativeTabs{
 	public Item getTabIconItem() {
 		return LazarusItems.gilded_token;
 	}
+	
+	@Override
+	public boolean hasSearchBar()
+	{
+		return true;
+	}
 
 }

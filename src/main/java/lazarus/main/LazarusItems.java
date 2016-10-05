@@ -13,6 +13,7 @@ import lazarus.utilities.Reference;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemSword;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
@@ -21,16 +22,16 @@ public class LazarusItems
 {
 	
 	/*---------------------------------------- Items variables ----------------------------------------*/
-	public static DormantToken dormant_token;
-	public static GildedToken gilded_token;
-	public static WaningToken waning_token;
-	public static AmplifyingToken amplifying_token;
-	public static QuellingToken quelling_token;
-	public static CowardiceToken cowardice_token;
+	public static BaseItem dormant_token;
+	public static BaseItem gilded_token;
+	public static BaseItem waning_token;
+	public static BaseItem amplifying_token;
+	public static BaseItem quelling_token;
+	public static BaseItem cowardice_token;
 	
-	public static AbyssalPearl abyssal_pearl;
+	public static BaseItem abyssal_pearl;
 	
-	public static TokenPouch token_pouch;
+	public static BaseItem token_pouch;
 	
 	
 	/*---------------------------------------- Init items ----------------------------------------*/

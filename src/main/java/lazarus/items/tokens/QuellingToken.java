@@ -4,9 +4,11 @@ import static java.lang.Math.abs;
 import static java.lang.Math.floor;
 import static java.lang.Math.round;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import lazarus.blocks.infusatron.RitualElement;
 import lazarus.items.BaseToken;
 import lazarus.main.LazarusItems;
 import lazarus.utilities.handlers.NBTHandler;
@@ -25,17 +27,17 @@ public class QuellingToken extends BaseToken
 {
 	/*---------------------------------------- Variables ----------------------------------------*/
 	public static String name = "quelling_token";
+	public ArrayList<RitualElement> ritualElements = new ArrayList<RitualElement>();
 	/*---------------------------------------- Constructor ----------------------------------------*/
 	public QuellingToken()
 	{
 		super(name);
 		this.amplifiers=Arrays.asList(1.00, 1.25, 1.50, 1.75, 2.00, 2.50);
-		this.description = 
-				"When near a explosion,"
-						+ "\nblock damage is absorbed"
-						+ "\nby the player. Area of effect"
-						+ "\nincreases with rarity";
-		/*"-------------------------§§§"*/
+		this.description = "Sacrifice yourself for your craft becasue when you have returned to the dust, it shall live on. Your destruction will prevent the real destruction of that around you.";
+		this.subDescription.add("Explosions within a 5 block distance will do no block damage");
+		this.subDescription.add("Explosions with a 5 block distance will deal extra damage to the beholder.");
+		this.subDescription.add("Rarity controls the block distance for detection.");
+		ritual();
 	}
 
 	/*---------------------------------------- Tooltip ----------------------------------------*/
@@ -43,15 +45,16 @@ public class QuellingToken extends BaseToken
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4)
 	{
+		list.add("Explosion Protection");
 		/*If item has been initialised*/
 		if(stack.hasTagCompound())
 		{
 			int rarity = stack.getTagCompound().getInteger("rarity");
-			list.add("Rarity: " + NBTHandler.getRarityInfo(rarity));
-			list.add("§7§opress §c§oSpace §7§ofor §7§omore §7§oinfo");
+			String rarityInfo = NBTHandler.getRarityInfo(rarity);
+			list.add("Rarity: " + rarityInfo);
 		}
 		/*Otherwise*/
-		else{list.add("§oWont anyone think of the blocks?");list.add("§7§opress §c§oSpace §7§ofor §7§omore §7§oinfo");}
+		list.add("§7§opress §c§oSpace §7§ofor §7§omore §7§oinfo");
 	}
 
 	/*---------------------------------------- On item creation ----------------------------------------*/
@@ -68,16 +71,19 @@ public class QuellingToken extends BaseToken
 		double x = round(abs(player.getPosition().getX() - explosionPos.xCoord));
 		double y = round(abs(player.getPosition().getY() - explosionPos.yCoord));
 		double z = round(abs(player.getPosition().getZ() - explosionPos.zCoord));
-		if(player.inventory.hasItem(LazarusItems.quelling_token)
-				&& x <= 5
-				&& y <= 5
-				&& z <= 5)
+		if(x <= 5 && y <= 5 && z <= 5)
 		{
 			AxisAlignedBB blocks = new AxisAlignedBB(-5, -5, -5, 5, 5, 5);
 			float damage = (event.world.getBlockDensity(explosionPos, blocks) * 20);
-			player.attackEntityFrom(quellingExplosion, (float)floor(damage));
+			player.attackEntityFrom(quellingExplosion, 10);
 			event.explosion.doExplosionB(true);
 			event.setCanceled(true);
 		}	
+	}
+	
+	/*---------------------------------------- Create ritual ----------------------------------------*/
+	public void ritual()
+	{
+		ritualElements.add(new RitualElement("Have 30 experience levels."));
 	}
 }

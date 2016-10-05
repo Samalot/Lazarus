@@ -25,11 +25,7 @@ public class AbyssalPearl extends BaseItem{
 	{
 		super(name);
 		this.setMaxStackSize(64); /*Overide sack size*/
-		this.description = 
-				   "Created by throwing an"
-		       + "\n§3§lEnder§r §3§lPearl§r into a §5§lPortal§r."
-		       + "\nUsed to create Tokens.";
-	             /*"-------------------------§§§"*/
+		this.description = "Created by throwing an §3§lEnder§r §3§lPearl§r into a §5§lPortal§r. Used to create Tokens.";
 	}
 	
 	/*---------------------------------------- Tooltip ----------------------------------------*/

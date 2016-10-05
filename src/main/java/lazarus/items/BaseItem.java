@@ -16,6 +16,7 @@ public class BaseItem extends Item
 	/*---------------------------------------- Variables ----------------------------------------*/
 	private String name;
 	public ArrayList<ModelResourceLocation> resourseLocationArray = new ArrayList<ModelResourceLocation>();
+	public ArrayList<String> subDescription = new ArrayList<String>();
 	public String description = "This is temp.";
 	
 	/*---------------------------------------- Constructor ----------------------------------------*/
@@ -37,4 +38,8 @@ public class BaseItem extends Item
 	public String getDescription()
 	{return description;}
 	
+	/*---------------------------------------- Get name ----------------------------------------*/
+	public String getName()
+	{return name;}
+		
 }

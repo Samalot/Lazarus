@@ -28,13 +28,10 @@ public class GildedToken extends BaseToken
 	{
 		super(name);
 		this.amplifiers=Arrays.asList(1.00, 1.25, 1.50, 1.75, 2.00, 2.50);
-		this.description = 
-				"Change your §6§lgold§r into §a§lxp§r, "
-						+ "\n§lright§r §lclick§r to feed §6§lgold§r"
-						+ "\nand be rewarded with §a§lxp§r!"
-						+ "\nHolding §lshift§r will allow"
-						+ "\nyou to feed §6§lgold§r §6§lblocks§r";
-		/*"-------------------------"*/
+		this.description = "Greed and power go hand in hand, consuming the minds of man and mob alike. Infused within this stone is the raw Abyssal power to transform the root of all greed - gold - into pure power.";
+		this.subDescription.add("Right click to exchange gold ingots for XP.");
+		this.subDescription.add("Shift Right click to exchange gold blocks for XP (X9).");
+		this.subDescription.add("Rarity boosts the amount of XP gained.");
 	}
 
 	/*---------------------------------------- Tooltip ----------------------------------------*/
@@ -42,15 +39,16 @@ public class GildedToken extends BaseToken
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4)
 	{
+		list.add("Gold to XP!");
 		/*If item has been initialised*/
 		if(stack.hasTagCompound())
 		{
 			int rarity = stack.getTagCompound().getInteger("rarity");
-			list.add("Rarity: " + NBTHandler.getRarityInfo(rarity));
-			list.add("§7§opress §c§oSpace §7§ofor §7§omore §7§oinfo");
+			String rarityInfo = NBTHandler.getRarityInfo(rarity);
+			list.add("Rarity: " + rarityInfo);
 		}
 		/*Otherwise*/
-		else{list.add("§oGold goes in!");list.add("§oXP comes out!");list.add("§7§opress §c§oSpace §7§ofor §7§omore §7§oinfo");}
+		list.add("§7§opress §c§oSpace §7§ofor §7§omore §7§oinfo");
 	}
 
 	/*---------------------------------------- On item creation ----------------------------------------*/
@@ -62,6 +60,9 @@ public class GildedToken extends BaseToken
 	/*---------------------------------------- On right click ----------------------------------------*/
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
 	{
+		
+		System.out.println(amplifiers.get(stack.getTagCompound().getInteger("rarity")));
+		
 		int boostedAmount = (int) Math.round(xpAmount*amplifiers.get(stack.getTagCompound().getInteger("rarity")));
 		System.out.println(boostedAmount);
 		if(!KeyboardHandler.isShiftDown()){ /*If player is not holding shift*/

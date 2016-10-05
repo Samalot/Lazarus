@@ -6,7 +6,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import lazarus.guis.container.token_pouch.GuiTokenPouch;
+import lazarus.interfaces.InterfaceLog;
+import lazarus.interfaces.guis.GuiTokenPouch;
+import lazarus.items.BaseItem;
+import lazarus.items.BaseToken;
 import lazarus.items.tokens.AmplifyingToken;
 import lazarus.items.tokens.CowardiceToken;
 import lazarus.items.tokens.QuellingToken;
@@ -59,10 +62,38 @@ public class MainEventHandler {
 	public static ArrayList<Entity> enderPearlArray = new ArrayList<Entity>();
 	public static long lastDuplicateTokenFlag = System.nanoTime();
 	
+	public static ArrayList<GuiScreen> guiLog = new ArrayList<GuiScreen>();
+	public static int guiReloadFlag = 0;
+	
+	
 	/*---------------------------------------- Listen for guiOpens ----------------------------------------*/
 	@SubscribeEvent
 	@SideOnly(Side.CLIENT)
-	public void openGui(GuiOpenEvent event){globalFlag_Token_Pouch_Open = (event.gui instanceof GuiTokenPouch) ? 1 : 0;}
+	public void openGui(GuiOpenEvent event)
+	{
+		/*Update the pouch flag*/
+		globalFlag_Token_Pouch_Open = (event.gui instanceof GuiTokenPouch) ? 1 : 0;
+		
+		
+		/*Check for reload*/
+		if(guiReloadFlag == 1)
+		{
+			event.gui = guiLog.get(0);
+			guiReloadFlag = 0;
+		}
+		
+		/*Record the last two guis visited*/
+		if(event.gui != null)
+		{
+			if(guiLog.size()<2){guiLog.add(event.gui);}
+			else
+			{
+				GuiScreen temp = guiLog.get(1);
+				guiLog.set(0, temp);
+				guiLog.set(1, event.gui);
+			}
+		}	
+	}
 
 	/*---------------------------------------- Listen for item pickup ----------------------------------------*/
 	@SubscribeEvent
@@ -140,7 +171,7 @@ public class MainEventHandler {
 	/*---------------------------------------- Moniter registed ender pearls  ----------------------------------------*/
 	@SubscribeEvent
 	public void onPearlUpdate(WorldTickEvent event) 
-	{
+	{	
 		//Word object from event.
 		World world = event.world;	
 		//Only run in the start phase of a tick and only if there are ender pearls to track
@@ -203,8 +234,10 @@ public class MainEventHandler {
 			String stringElement = (String) element;
 			EntityPlayer elementPlayer = (EntityPlayer) currentPlayer.get(stringElement);
 			/*Quelling Token*/
-			
-			if(InventoryHandler.scanInventory(elementPlayer, QuellingToken.class, "quelling_token")){QuellingToken.onExplosion(event, elementPlayer);}
+			if(InventoryHandler.scanInventory(elementPlayer, QuellingToken.class, "quelling"))
+			{
+				QuellingToken.onExplosion(event, elementPlayer);
+			}
 		}	
 	}
 
@@ -218,25 +251,14 @@ public class MainEventHandler {
 		EntityPlayer player = event.entityPlayer;
 		/*World*/
 		World world = player.worldObj;
-
+		
 		if(world.isRemote)
 		{	
 			itemInfo_item = event.itemStack;	
-			if(KeyboardHandler.isSpaceDown()){
-				if(itemInfo_item.getItem() == LazarusItems.amplifying_token
-						|| itemInfo_item.getItem() == LazarusItems.cowardice_token
-						|| itemInfo_item.getItem() == LazarusItems.gilded_token
-						|| itemInfo_item.getItem() == LazarusItems.quelling_token
-						|| itemInfo_item.getItem() == LazarusItems.waning_token
-						){
-					itemInfo_isToken = true;
-					player.openGui(LazarusMain.instance, LazarusMain.GUI_ITEM_INFO, world, (int) player.posX, (int) player.posY, (int) player.posZ);
-				}
-				if(itemInfo_item.getItem() == LazarusItems.token_pouch
-						|| itemInfo_item.getItem() == LazarusItems.abyssal_pearl
-						|| itemInfo_item.getItem() == LazarusItems.dormant_token
-						){
-					itemInfo_isToken = false;
+			if(KeyboardHandler.isSpaceDown())
+			{
+				if(event.itemStack.getItem() instanceof BaseItem)
+				{
 					player.openGui(LazarusMain.instance, LazarusMain.GUI_ITEM_INFO, world, (int) player.posX, (int) player.posY, (int) player.posZ);
 				}
 			}

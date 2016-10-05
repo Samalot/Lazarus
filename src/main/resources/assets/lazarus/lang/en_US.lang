@@ -1,3 +1,7 @@
+tile.infusatron.name=Infusatron
+
+entity.Osmodeus.name=Osmodeus
+
 item.dormant_token.name=Dormant Token
 item.gilded_token.name=Gilded Token
 item.waning_token.name=Waning Token
@@ -14,9 +18,7 @@ potion.collapse=Collapse
 
 itemGroup.tabLazarus=Lazarus
 
-
-
 death.attack.quellingExplosion=%1$s absorbed an explosion
 
-
 death.attack.quellingExplosion.player=%1$s absorbed an explosion while fighting %2$s.
+

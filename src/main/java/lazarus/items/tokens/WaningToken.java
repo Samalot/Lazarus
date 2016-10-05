@@ -5,9 +5,13 @@ import java.util.List;
 import java.util.Random;
 
 import lazarus.items.BaseToken;
+import lazarus.utilities.handlers.KeyboardHandler;
 import lazarus.utilities.handlers.NBTHandler;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
@@ -26,12 +30,9 @@ public class WaningToken extends BaseToken
 	{
 		super(name);
 		this.amplifiers=Arrays.asList(1.00, 1.25, 1.50, 1.75, 2.00, 2.50);
-		this.description = 
-				"Protect yourself from wither."
-						+ "\nIf you are inflicted by"
-						+ "\nwither, replace it with a"
-						+ "\ndifferent negative buff!";
-		/*"-------------------------§§§"*/
+		this.description = "A cure for the darkest of curses, when the flesh withers from your bones - this token is your salvation. Nothing this powerful is free, rid yourself of the darkness, but at a cost.";
+		this.subDescription.add("Withering potion effects will be reomved, replaced with a different debuff.");
+		this.subDescription.add("Rarity controls the severity of the new debuff.");
 	}
 
 	/*---------------------------------------- Tooltip ----------------------------------------*/
@@ -39,20 +40,22 @@ public class WaningToken extends BaseToken
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4)
 	{
+		list.add("Wither be gone!");
 		/*If item has been initialised*/
 		if(stack.hasTagCompound())
 		{
 			int rarity = stack.getTagCompound().getInteger("rarity");
-			list.add("Rarity: " + NBTHandler.getRarityInfo(rarity));
-			list.add("§7§opress §c§oSpace §7§ofor §7§omore §7§oinfo");
-
+			String rarityInfo = NBTHandler.getRarityInfo(rarity);
+			list.add("Rarity: " + rarityInfo);
 		}
-		else{list.add("§oA small sacrifice for a greater gain.");list.add("§7§opress §c§oSpace §7§ofor §7§omore §7§oinfo");}
+		/*Otherwise*/
+		list.add("§7§opress §c§oSpace §7§ofor §7§omore §7§oinfo");
 	}
 
 	/*---------------------------------------- On tick ----------------------------------------*/
 	public void onUpdate(ItemStack stack, World world, Entity entity, int par4, boolean par5)
 	{
+		if(!stack.hasTagCompound()){NBTHandler.tokenNBT(stack);}	
 		/*Pouch with inventory*/
 		EntityPlayer player = null;
 		boolean flag = false;
@@ -85,4 +88,13 @@ public class WaningToken extends BaseToken
 			}	
 		}										
 	}
+	
+	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
+	{
+		System.out.println(amplifiers.get(stack.getTagCompound().getInteger("rarity")));	
+		return stack;
+	}
+	
+	
+	
 }

@@ -6,12 +6,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import lazarus.guis.container.token_pouch.InventoryTokenPouch;
+import lazarus.interfaces.inventory.InventoryTokenPouch;
 import lazarus.items.BaseItem;
 import lazarus.items.tokens.CowardiceToken;
+import lazarus.items.tokens.QuellingToken;
 import lazarus.items.tokens.WaningToken;
 import lazarus.main.LazarusMain;
 import lazarus.utilities.events.MainEventHandler;
+import lazarus.utilities.handlers.InventoryHandler;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -32,12 +34,7 @@ public class TokenPouch extends BaseItem
 
 	/*---------------------------------------- Constructor ----------------------------------------*/
 	public TokenPouch(){super(name);
-	this.description = 
-			   "Use this to hold your §8§ltokens§r."
-	       + "\nAny passive effects from"
-	       + "\ntokens in the bag will"
-	       + "\nbe active from inside.";
-             /*"-------------------------§§§"*/
+	this.description =  "Use this to hold your §8§ltokens§r. Any passive effects from tokens in the bag will be active from inside.";
 	}
 	
 	/*---------------------------------------- On right click ----------------------------------------*/
@@ -66,123 +63,41 @@ public class TokenPouch extends BaseItem
 	@Override
 	public int getMaxItemUseDuration(ItemStack stack) {return 1;}	
 	
-	
 	/*---------------------------------------- On tick ----------------------------------------*/
 	public void onUpdate(ItemStack stack, World world, Entity entity, int par4, boolean par5)
-	{
-		
+	{	
 		/*Update inventory if open*/
-		System.out.println(MainEventHandler.globalFlag_Token_Pouch_Open);
-		if(MainEventHandler.globalFlag_Token_Pouch_Open == 1){detectInventory(stack);}
-		
-		/*Only continue if an inventory exists*/
-		if(stack.hasTagCompound()){
-			/*One off, initialise NBT Tags*/
-			NBTTagCompound stackTags = stack.getTagCompound();
-			if(!stackTags.hasKey("waning")){for(String key : tokenKeys){stackTags.setBoolean(key, false);}}
-		}
+		if(MainEventHandler.globalFlag_Token_Pouch_Open == 1){}
 		
 		/*Pouch with inventory*/
-		EntityPlayer player = null;
-		boolean flag = false;
-		if(entity instanceof EntityPlayer){player = (EntityPlayer) entity; flag = true;}
-		if(flag)
+		if(entity instanceof EntityPlayer && stack.hasTagCompound() && stack.getTagCompound().hasKey("ItemInventory"))
 		{
-			if(stack.hasTagCompound() && stack.getTagCompound().hasKey("ItemInventory"))
-			{
-				NBTTagList itemInv = stack.getTagCompound().getTagList("ItemInventory", 10);
-				int invCount = itemInv.tagCount();
-				if(invCount>0){
-					for (int j = 0; j < invCount; j++){
-						NBTTagCompound slotItem = (NBTTagCompound) itemInv.get(j);
-						String itemKey = slotItem.getTag("id").toString();
-						itemKey = itemKey.substring(9,itemKey.length()-1);
-						if(itemKey.equals("cowardice_token")){CowardiceToken.tick(player, world);}
-						if(itemKey.equals("waning_token")){WaningToken.waningTokenEffect(player);}
-					}
-				}
-			}		
+			EntityPlayer player = (EntityPlayer) entity;
+			NBTTagCompound itemTags = stack.getTagCompound();
+			
+			if(detectInventory(stack, "waning")){WaningToken.waningTokenEffect(player);}
+			if(detectInventory(stack, "cowardice")){CowardiceToken.scanForSpeed(world, player);}
 		}		
 	}
 	
 	/*---------------------------------------- Detect item inventory from NBT ----------------------------------------*/
-	public ArrayList<String> detectInventory(ItemStack stack)
+	public static boolean detectInventory(ItemStack stack, String key)
 	{
-		ArrayList<String> items =new ArrayList<String>();	
-		if(!stack.hasTagCompound() || !stack.getTagCompound().hasKey("ItemInventory")){return null;}
-		else{
-			NBTTagList itemInv = stack.getTagCompound().getTagList("ItemInventory", 10);
-			int invCount = itemInv.tagCount();
-			if(invCount>0){
-				for (int i = 0; i < invCount; i++){
-					NBTTagCompound slotItem = (NBTTagCompound) itemInv.get(i);
-					String itemKey = slotItem.getTag("id").toString();
-					items.add(itemKey.substring(9, itemKey.length()-7));
-				}
-			}
+		boolean result = false;
+		//Break if item has no inventory.
+		if(!stack.hasTagCompound() || !stack.getTagCompound().hasKey("ItemInventory")){return result;}
+		//Extract raw inventory from pouch
+		NBTTagCompound itemTags = stack.getTagCompound();
+		NBTTagList itemInv = itemTags.getTagList("ItemInventory", 10);
+		//Itterate over inventory contents.
+ 		for(int i = 0; i < itemInv.tagCount(); i++)
+ 		{
+			NBTTagCompound slotItem = (NBTTagCompound) itemInv.get(i);
+			String itemKey = slotItem.getTag("id").toString();
+			itemKey = itemKey.substring(9,itemKey.length()-7);
+			if(itemKey.equals(key)){result = true;}
 		}
-		
-		/*Update keys*/
-		for(String key : tokenKeys)
-		{
-			if(stack.hasTagCompound() && stack.getTagCompound().hasKey(key))
-			{
-				if(items.contains(key)){stack.getTagCompound().setBoolean(key, true);}
-				else{stack.getTagCompound().setBoolean(key, false);}
-			}
-		}	
-		System.out.println(items);
-		return items;
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	/*---------------------------------------- Format inventory array into tooltip items ----------------------------------------*/
-	public static Map<String, Integer> formatTooltip(ArrayList<String> inputList)
-	{
-		Map<String, Integer> tooltipInfo = new HashMap<String, Integer>();
-		for(String element : inputList)
-		{
-			String colourCode = tokenToColour(element);
-			String configuredElement = "§" + colourCode + "§o" + element.substring(0, 1).toUpperCase() + element.substring(1) + "§" + colourCode + "§o" + "Token";
-			if(tooltipInfo.containsKey(configuredElement)){tooltipInfo.put(configuredElement, tooltipInfo.get(configuredElement)+1);}
-			else{tooltipInfo.put(configuredElement, 1);}
-		}
-		return tooltipInfo;
-	}
-	
-	/*---------------------------------------- Return colour of token ----------------------------------------*/
-	public static String tokenToColour(String item)
-	{
-		String colourCode = "7";
-		if(item.equals("waning")){colourCode = "5";}
-		if(item.equals("gilded")){colourCode = "6";}
-		if(item.equals("amplifying")){colourCode = "7";}
-		if(item.equals("cowardice")){colourCode = "3";}
-		if(item.equals("quelling")){colourCode = "c";}
-		if(item.equals("dormant")){colourCode = "8";}
-		return colourCode;
+		return result;
 	}
 	
 	/*---------------------------------------- Tooltip ----------------------------------------*/
@@ -190,21 +105,6 @@ public class TokenPouch extends BaseItem
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4)
 	{
-		if(!stack.hasTagCompound() || (stack.getTagCompound().getTagList("ItemInventory", 10).tagCount()<1))
-		{list.add("§oEMPTY");list.add("§7§opress §c§oSpace §7§ofor §7§omore §7§oinfo");}
-		else
-		{
-			ArrayList<String> items = detectInventory(stack);
-			Map<String, Integer> formatedItems = formatTooltip(items);
-			for(String element : formatedItems.keySet()){
-				if(formatedItems.get(element) == 1)
-				{list.add(element);}
-				else
-				{list.add(element + " §" + element.charAt(3) + "§o" + "X" + Integer.toString(formatedItems.get(element)));}
-			}
-			list.add("§7§opress §c§oSpace §7§ofor §7§omore §7§oinfo");
-		}		
+		list.add("§7§opress §c§oSpace §7§ofor §7§omore §7§oinfo");
 	}
-	
-	
 }

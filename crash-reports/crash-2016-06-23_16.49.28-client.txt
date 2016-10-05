@@ -1,0 +1,137 @@
+---- Minecraft Crash Report ----
+// Surprise! Haha. Well, this is awkward.
+
+Time: 23/06/16 16:49
+Description: Ticking entity
+
+java.lang.StringIndexOutOfBoundsException: String index out of range: -8
+	at java.lang.String.substring(Unknown Source)
+	at lazarus.items.other.TokenPouch.detectInventory(TokenPouch.java:100)
+	at lazarus.items.other.TokenPouch.onUpdate(TokenPouch.java:82)
+	at net.minecraft.item.ItemStack.updateAnimation(ItemStack.java:498)
+	at net.minecraft.entity.player.InventoryPlayer.decrementAnimations(InventoryPlayer.java:350)
+	at net.minecraft.entity.player.EntityPlayer.onLivingUpdate(EntityPlayer.java:623)
+	at net.minecraft.client.entity.EntityPlayerSP.onLivingUpdate(EntityPlayerSP.java:913)
+	at net.minecraft.entity.EntityLivingBase.onUpdate(EntityLivingBase.java:1828)
+	at net.minecraft.entity.player.EntityPlayer.onUpdate(EntityPlayer.java:334)
+	at net.minecraft.client.entity.EntityPlayerSP.onUpdate(EntityPlayerSP.java:165)
+	at net.minecraft.world.World.updateEntityWithOptionalForce(World.java:2031)
+	at net.minecraft.world.World.updateEntity(World.java:1997)
+	at net.minecraft.world.World.updateEntities(World.java:1823)
+	at net.minecraft.client.Minecraft.runTick(Minecraft.java:2184)
+	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1087)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:376)
+	at net.minecraft.client.main.Main.main(Main.java:117)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at net.minecraftforge.gradle.GradleStartCommon.launch(Unknown Source)
+	at GradleStart.main(Unknown Source)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Stacktrace:
+	at java.lang.String.substring(Unknown Source)
+	at lazarus.items.other.TokenPouch.detectInventory(TokenPouch.java:100)
+	at lazarus.items.other.TokenPouch.onUpdate(TokenPouch.java:82)
+	at net.minecraft.item.ItemStack.updateAnimation(ItemStack.java:498)
+	at net.minecraft.entity.player.InventoryPlayer.decrementAnimations(InventoryPlayer.java:350)
+	at net.minecraft.entity.player.EntityPlayer.onLivingUpdate(EntityPlayer.java:623)
+	at net.minecraft.client.entity.EntityPlayerSP.onLivingUpdate(EntityPlayerSP.java:913)
+	at net.minecraft.entity.EntityLivingBase.onUpdate(EntityLivingBase.java:1828)
+	at net.minecraft.entity.player.EntityPlayer.onUpdate(EntityPlayer.java:334)
+	at net.minecraft.client.entity.EntityPlayerSP.onUpdate(EntityPlayerSP.java:165)
+	at net.minecraft.world.World.updateEntityWithOptionalForce(World.java:2031)
+	at net.minecraft.world.World.updateEntity(World.java:1997)
+
+-- Entity being ticked --
+Details:
+	Entity Type: null (net.minecraft.client.entity.EntityPlayerSP)
+	Entity ID: 136
+	Entity Name: Samalot
+	Entity's Exact location: 287.66, 4.00, -1727.63
+	Entity's Block location: 287.00,4.00,-1728.00 - World: (287,4,-1728), Chunk: (at 15,0,0 in 17,-108; contains blocks 272,0,-1728 to 287,255,-1713), Region: (0,-4; contains chunks 0,-128 to 31,-97, blocks 0,0,-2048 to 511,255,-1537)
+	Entity's Momentum: 0.00, 0.00, 0.00
+	Entity's Rider: ~~ERROR~~ NullPointerException: null
+	Entity's Vehicle: ~~ERROR~~ NullPointerException: null
+Stacktrace:
+	at net.minecraft.world.World.updateEntities(World.java:1823)
+
+-- Affected level --
+Details:
+	Level name: MpServer
+	All players: 1 total; [EntityPlayerSP['Samalot'/136, l='MpServer', x=287.66, y=4.00, z=-1727.63]]
+	Chunk stats: MultiplayerChunkCache: 20, 20
+	Level seed: 0
+	Level generator: ID 01 - flat, ver 0. Features enabled: false
+	Level generator options: 
+	Level spawn location: 302.00,4.00,-1731.00 - World: (302,4,-1731), Chunk: (at 14,0,13 in 18,-109; contains blocks 288,0,-1744 to 303,255,-1729), Region: (0,-4; contains chunks 0,-128 to 31,-97, blocks 0,0,-2048 to 511,255,-1537)
+	Level time: 1779 game time, 1779 day time
+	Level dimension: 0
+	Level storage version: 0x00000 - Unknown?
+	Level weather: Rain time: 0 (now: false), thunder time: 0 (now: false)
+	Level game mode: Game mode: creative (ID 1). Hardcore: false. Cheats: false
+	Forced entities: 16 total; [EntitySheep['Sheep'/64, l='MpServer', x=264.03, y=4.00, z=-1695.34], EntitySlime['Slime'/42, l='MpServer', x=244.84, y=4.00, z=-1737.31], EntitySlime['Slime'/43, l='MpServer', x=247.41, y=4.00, z=-1736.38], EntitySlime['Slime'/44, l='MpServer', x=253.16, y=4.00, z=-1737.44], EntitySlime['Slime'/45, l='MpServer', x=241.75, y=4.00, z=-1729.84], EntitySlime['Slime'/46, l='MpServer', x=251.78, y=4.47, z=-1738.84], EntitySlime['Slime'/47, l='MpServer', x=244.66, y=4.00, z=-1725.84], EntitySlime['Slime'/48, l='MpServer', x=244.34, y=4.00, z=-1714.44], EntityPlayerSP['Samalot'/136, l='MpServer', x=287.66, y=4.00, z=-1727.63], EntitySlime['Slime'/49, l='MpServer', x=246.31, y=4.00, z=-1718.84], EntitySlime['Slime'/50, l='MpServer', x=248.66, y=4.00, z=-1715.16], EntitySlime['Slime'/51, l='MpServer', x=250.81, y=4.00, z=-1686.03], EntitySlime['Slime'/87, l='MpServer', x=316.16, y=4.00, z=-1696.00], EntitySheep['Sheep'/61, l='MpServer', x=264.88, y=4.00, z=-1696.72], EntitySheep['Sheep'/62, l='MpServer', x=261.19, y=4.00, z=-1698.69], EntitySheep['Sheep'/63, l='MpServer', x=256.50, y=4.00, z=-1693.50]]
+	Retry entities: 0 total; []
+	Server brand: fml,forge
+	Server type: Integrated singleplayer server
+Stacktrace:
+	at net.minecraft.client.multiplayer.WorldClient.addWorldInfoToCrashReport(WorldClient.java:392)
+	at net.minecraft.client.Minecraft.addGraphicsAndWorldToCrashReport(Minecraft.java:2614)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:398)
+	at net.minecraft.client.main.Main.main(Main.java:117)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at net.minecraftforge.gradle.GradleStartCommon.launch(Unknown Source)
+	at GradleStart.main(Unknown Source)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.8
+	Operating System: Windows 7 (amd64) version 6.1
+	Java Version: 1.8.0_77, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 716414952 bytes (683 MB) / 1032323072 bytes (984 MB) up to 3817865216 bytes (3641 MB)
+	JVM Flags: 0 total; 
+	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0
+	FML: MCP v9.10 FML v8.0.99.99 Minecraft Forge 11.14.4.1563 4 mods loaded, 4 mods active
+	States: 'U' = Unloaded 'L' = Loaded 'C' = Constructed 'H' = Pre-initialized 'I' = Initialized 'J' = Post-initialized 'A' = Available 'D' = Disabled 'E' = Errored
+	UCHIJAAAA	mcp{9.05} [Minecraft Coder Pack] (minecraft.jar) 
+	UCHIJAAAA	FML{8.0.99.99} [Forge Mod Loader] (forgeSrc-1.8-11.14.4.1563.jar) 
+	UCHIJAAAA	Forge{11.14.4.1563} [Minecraft Forge] (forgeSrc-1.8-11.14.4.1563.jar) 
+	UCHIJAAAA	lazarus{0.05} [Lazarus] (bin) 
+	Loaded coremods (and transformers): 
+	GL info: ' Vendor: 'ATI Technologies Inc.' Version: '4.5.13416 Compatibility Profile Context 15.300.1025.0' Renderer: 'AMD Radeon HD 7800 Series'
+	Launched Version: 1.8
+	LWJGL: 2.9.1
+	OpenGL: AMD Radeon HD 7800 Series GL version 4.5.13416 Compatibility Profile Context 15.300.1025.0, ATI Technologies Inc.
+	GL Caps: Using GL 1.3 multitexturing.
+Using GL 1.3 texture combiners.
+Using framebuffer objects because OpenGL 3.0 is supported and separate blending is supported.
+Shaders are available because OpenGL 2.1 is supported.
+VBOs are available because OpenGL 1.5 is supported.
+
+	Using VBOs: No
+	Is Modded: Definitely; Client brand changed to 'fml,forge'
+	Type: Client (map_client.txt)
+	Resource Packs: []
+	Current Language: English (US)
+	Profiler Position: N/A (disabled)

@@ -1,0 +1,109 @@
+---- Minecraft Crash Report ----
+// Who set us up the TNT?
+
+Time: 23/06/16 16:27
+Description: Rendering screen
+
+java.lang.ClassCastException: lazarus.items.other.TokenPouch cannot be cast to lazarus.items.BaseToken
+	at lazarus.guis.ItemInfoScreen.drawScreen(ItemInfoScreen.java:25)
+	at net.minecraftforge.client.ForgeHooksClient.drawScreen(ForgeHooksClient.java:470)
+	at net.minecraft.client.renderer.EntityRenderer.updateCameraAndRender(EntityRenderer.java:1137)
+	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1114)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:376)
+	at net.minecraft.client.main.Main.main(Main.java:117)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at net.minecraftforge.gradle.GradleStartCommon.launch(Unknown Source)
+	at GradleStart.main(Unknown Source)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Stacktrace:
+	at lazarus.guis.ItemInfoScreen.drawScreen(ItemInfoScreen.java:25)
+	at net.minecraftforge.client.ForgeHooksClient.drawScreen(ForgeHooksClient.java:470)
+
+-- Screen render details --
+Details:
+	Screen name: lazarus.guis.ItemInfoScreen
+	Mouse location: Scaled: (161, 196). Absolute: (483, 288)
+	Screen size: Scaled: (480, 293). Absolute: (1440, 878). Scale factor of 3
+
+-- Affected level --
+Details:
+	Level name: MpServer
+	All players: 1 total; [EntityPlayerSP['Samalot'/0, l='MpServer', x=295.55, y=4.00, z=-1732.16]]
+	Chunk stats: MultiplayerChunkCache: 618, 618
+	Level seed: 0
+	Level generator: ID 01 - flat, ver 0. Features enabled: false
+	Level generator options: 
+	Level spawn location: 302.00,4.00,-1731.00 - World: (302,4,-1731), Chunk: (at 14,0,13 in 18,-109; contains blocks 288,0,-1744 to 303,255,-1729), Region: (0,-4; contains chunks 0,-128 to 31,-97, blocks 0,0,-2048 to 511,255,-1537)
+	Level time: 540 game time, 540 day time
+	Level dimension: 0
+	Level storage version: 0x00000 - Unknown?
+	Level weather: Rain time: 0 (now: false), thunder time: 0 (now: false)
+	Level game mode: Game mode: creative (ID 1). Hardcore: false. Cheats: false
+	Forced entities: 60 total; [EntityPlayerSP['Samalot'/0, l='MpServer', x=295.55, y=4.00, z=-1732.16], EntitySlime['Slime'/8453, l='MpServer', x=320.81, y=5.16, z=-1754.69], EntitySlime['Slime'/58888, l='MpServer', x=217.22, y=4.00, z=-1709.16], EntityRabbit['Rabbit'/126865, l='MpServer', x=236.34, y=4.00, z=-1760.66], EntityRabbit['Rabbit'/126864, l='MpServer', x=235.50, y=4.00, z=-1762.50], EntitySlime['Slime'/151952, l='MpServer', x=252.30, y=4.01, z=-1738.52], EntityRabbit['Rabbit'/126866, l='MpServer', x=236.34, y=4.00, z=-1756.66], EntityRabbit['Rabbit'/126868, l='MpServer', x=239.34, y=4.00, z=-1758.66], EntitySheep['Sheep'/126871, l='MpServer', x=216.50, y=4.00, z=-1697.50], EntitySheep['Sheep'/126870, l='MpServer', x=219.44, y=4.00, z=-1691.19], EntitySlime['Slime'/53144, l='MpServer', x=333.22, y=4.00, z=-1807.56], EntitySheep['Sheep'/126873, l='MpServer', x=221.22, y=4.00, z=-1691.84], EntitySlime['Slime'/50073, l='MpServer', x=301.09, y=5.22, z=-1792.53], EntitySheep['Sheep'/126872, l='MpServer', x=218.47, y=4.00, z=-1694.75], EntityPig['Pig'/126875, l='MpServer', x=361.69, y=4.00, z=-1749.97], EntityPig['Pig'/126874, l='MpServer', x=363.50, y=4.00, z=-1752.50], EntityPig['Pig'/126877, l='MpServer', x=362.68, y=4.00, z=-1746.61], EntityPig['Pig'/126876, l='MpServer', x=363.25, y=4.00, z=-1747.91], EntitySlime['Slime'/166812, l='MpServer', x=250.50, y=4.70, z=-1734.53], EntitySlime['Slime'/153245, l='MpServer', x=290.58, y=3.94, z=-1800.54], EntityRabbit['Rabbit'/126883, l='MpServer', x=330.34, y=4.00, z=-1735.66], EntitySlime['Slime'/61603, l='MpServer', x=331.44, y=4.02, z=-1762.41], EntityRabbit['Rabbit'/126882, l='MpServer', x=328.50, y=4.00, z=-1737.50], EntityRabbit['Rabbit'/126885, l='MpServer', x=328.34, y=4.00, z=-1735.66], EntityRabbit['Rabbit'/126884, l='MpServer', x=327.34, y=4.00, z=-1733.66], EntityChicken['Chicken'/126887, l='MpServer', x=322.50, y=4.00, z=-1749.50], EntitySlime['Slime'/104742, l='MpServer', x=237.88, y=4.75, z=-1708.88], EntityChicken['Chicken'/126886, l='MpServer', x=322.50, y=4.00, z=-1750.50], EntitySlime['Slime'/51495, l='MpServer', x=221.59, y=4.00, z=-1706.97], EntityChicken['Chicken'/126889, l='MpServer', x=327.28, y=4.00, z=-1747.25], EntityChicken['Chicken'/126888, l='MpServer', x=329.29, y=4.00, z=-1749.34], EntityRabbit['Rabbit'/126890, l='MpServer', x=372.47, y=4.23, z=-1765.31], EntitySlime['Slime'/88626, l='MpServer', x=292.75, y=4.02, z=-1787.34], EntitySlime['Slime'/149302, l='MpServer', x=327.63, y=5.16, z=-1796.52], EntitySheep['Sheep'/126903, l='MpServer', x=262.50, y=4.00, z=-1695.50], EntitySheep['Sheep'/126902, l='MpServer', x=259.50, y=4.00, z=-1698.50], EntitySheep['Sheep'/126905, l='MpServer', x=256.50, y=4.00, z=-1693.50], EntitySheep['Sheep'/126904, l='MpServer', x=263.57, y=4.00, z=-1698.99], EntitySheep['Sheep'/126907, l='MpServer', x=329.50, y=4.00, z=-1661.50], EntitySheep['Sheep'/126906, l='MpServer', x=326.16, y=4.00, z=-1658.41], EntitySheep['Sheep'/126909, l='MpServer', x=320.54, y=4.00, z=-1662.67], EntitySheep['Sheep'/126908, l='MpServer', x=332.50, y=4.00, z=-1658.50], EntitySlime['Slime'/69718, l='MpServer', x=245.34, y=4.17, z=-1729.53], EntitySheep['Sheep'/126937, l='MpServer', x=371.50, y=4.00, z=-1712.50], EntitySheep['Sheep'/126939, l='MpServer', x=369.50, y=4.00, z=-1711.50], EntitySlime['Slime'/156895, l='MpServer', x=319.68, y=5.06, z=-1711.75], EntitySheep['Sheep'/126943, l='MpServer', x=367.16, y=4.00, z=-1707.19], EntitySheep['Sheep'/126942, l='MpServer', x=368.78, y=4.00, z=-1708.81], EntityCow['Cow'/126945, l='MpServer', x=255.78, y=4.00, z=-1675.22], EntityCow['Cow'/126944, l='MpServer', x=253.19, y=4.00, z=-1674.81], EntityCow['Cow'/126947, l='MpServer', x=254.16, y=4.00, z=-1676.84], EntityCow['Cow'/126946, l='MpServer', x=254.81, y=4.00, z=-1673.19], EntitySlime['Slime'/29668, l='MpServer', x=357.94, y=4.02, z=-1792.72], EntitySlime['Slime'/743, l='MpServer', x=319.56, y=4.00, z=-1796.75], EntitySlime['Slime'/148197, l='MpServer', x=313.36, y=4.52, z=-1807.85], EntityCow['Cow'/126955, l='MpServer', x=228.64, y=4.00, z=-1770.10], EntityCow['Cow'/126954, l='MpServer', x=226.50, y=4.00, z=-1771.50], EntityCow['Cow'/126957, l='MpServer', x=227.67, y=4.00, z=-1768.98], EntityCow['Cow'/126956, l='MpServer', x=229.88, y=4.00, z=-1769.31], EntitySlime['Slime'/169470, l='MpServer', x=248.50, y=4.34, z=-1738.21]]
+	Retry entities: 0 total; []
+	Server brand: fml,forge
+	Server type: Integrated singleplayer server
+Stacktrace:
+	at net.minecraft.client.multiplayer.WorldClient.addWorldInfoToCrashReport(WorldClient.java:392)
+	at net.minecraft.client.Minecraft.addGraphicsAndWorldToCrashReport(Minecraft.java:2614)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:398)
+	at net.minecraft.client.main.Main.main(Main.java:117)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at net.minecraftforge.gradle.GradleStartCommon.launch(Unknown Source)
+	at GradleStart.main(Unknown Source)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.8
+	Operating System: Windows 7 (amd64) version 6.1
+	Java Version: 1.8.0_77, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 459746032 bytes (438 MB) / 1353187328 bytes (1290 MB) up to 3817865216 bytes (3641 MB)
+	JVM Flags: 0 total; 
+	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0
+	FML: MCP v9.10 FML v8.0.99.99 Minecraft Forge 11.14.4.1563 4 mods loaded, 4 mods active
+	States: 'U' = Unloaded 'L' = Loaded 'C' = Constructed 'H' = Pre-initialized 'I' = Initialized 'J' = Post-initialized 'A' = Available 'D' = Disabled 'E' = Errored
+	UCHIJAAAA	mcp{9.05} [Minecraft Coder Pack] (minecraft.jar) 
+	UCHIJAAAA	FML{8.0.99.99} [Forge Mod Loader] (forgeSrc-1.8-11.14.4.1563.jar) 
+	UCHIJAAAA	Forge{11.14.4.1563} [Minecraft Forge] (forgeSrc-1.8-11.14.4.1563.jar) 
+	UCHIJAAAA	lazarus{0.05} [Lazarus] (bin) 
+	Loaded coremods (and transformers): 
+	GL info: ' Vendor: 'ATI Technologies Inc.' Version: '4.5.13416 Compatibility Profile Context 15.300.1025.0' Renderer: 'AMD Radeon HD 7800 Series'
+	Launched Version: 1.8
+	LWJGL: 2.9.1
+	OpenGL: AMD Radeon HD 7800 Series GL version 4.5.13416 Compatibility Profile Context 15.300.1025.0, ATI Technologies Inc.
+	GL Caps: Using GL 1.3 multitexturing.
+Using GL 1.3 texture combiners.
+Using framebuffer objects because OpenGL 3.0 is supported and separate blending is supported.
+Shaders are available because OpenGL 2.1 is supported.
+VBOs are available because OpenGL 1.5 is supported.
+
+	Using VBOs: No
+	Is Modded: Definitely; Client brand changed to 'fml,forge'
+	Type: Client (map_client.txt)
+	Resource Packs: []
+	Current Language: English (US)
+	Profiler Position: N/A (disabled)

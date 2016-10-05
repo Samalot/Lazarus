@@ -1,0 +1,8 @@
+{
+        "variants": {
+        "facing=north": { "model": "lazarus:infusatron", "y": 180},
+        "facing=south": { "model": "lazarus:infusatron" },
+        "facing=west":  { "model": "lazarus:infusatron", "y": 90 },
+        "facing=east":  { "model": "lazarus:infusatron", "y": 270 }
+    }
+}

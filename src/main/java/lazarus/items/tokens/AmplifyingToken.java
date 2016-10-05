@@ -25,12 +25,10 @@ public class AmplifyingToken extends BaseToken
 	{
 		super(name);
 		this.amplifiers=Arrays.asList(1.00, 1.25, 1.50, 1.75, 2.00, 2.50);
-		this.description = 
-				"Damage delt when wielding"
-						+ "\nthis token is multiplied"
-						+ "\nby the amplifier, however"
-						+ "\nso is damage taken.";
-		/*"-------------------------§§§"*/
+		this.description = "The great strength infused within this token is unwieldy. Your attacks will be amplified, dealing significantly more damage... but at what cost?";
+		this.subDescription.add("Damage dealt multiplied by " + Double.toString(onAttack()));
+		this.subDescription.add("Damage recieved multiplied by " + Double.toString(onHurt()));
+		this.subDescription.add("Rarity scales the attack multipliers.");
 	}
 
 	/*---------------------------------------- Tooltip ----------------------------------------*/
@@ -38,14 +36,16 @@ public class AmplifyingToken extends BaseToken
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4)
 	{
+		list.add("Multiply your damage!");
 		/*If item has been initialised*/
 		if(stack.hasTagCompound())
 		{
 			int rarity = stack.getTagCompound().getInteger("rarity");
-			list.add("Rarity: " + NBTHandler.getRarityInfo(rarity));
-			list.add("§7§opress §c§oSpace §7§ofor §7§omore §7§oinfo");
+			String rarityInfo = NBTHandler.getRarityInfo(rarity);
+			list.add("Rarity: " + rarityInfo);
 		}
-		else{list.add("§oBecome a glass cannon");list.add("§7§opress §c§oSpace §7§ofor §7§omore §7§oinfo");}
+		/*Otherwise*/
+		list.add("§7§opress §c§oSpace §7§ofor §7§omore §7§oinfo");
 	}
 
 	/*---------------------------------------- On item creation ----------------------------------------*/

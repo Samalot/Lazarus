@@ -1,0 +1,125 @@
+{
+    "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
+    "textures": {
+        "particle": "lazarus:blocks/infusatron/par",
+        "texture0": "lazarus:blocks/infusatron/bn",
+        "texture1": "lazarus:blocks/infusatron/be",
+        "texture2": "lazarus:blocks/infusatron/bs",
+        "texture3": "lazarus:blocks/infusatron/bw",                  
+        "texture4": "lazarus:blocks/infusatron/bu",
+        "texture5": "lazarus:blocks/infusatron/bd",     
+        "texture6": "lazarus:blocks/infusatron/un",
+        "texture7": "lazarus:blocks/infusatron/ue",
+        "texture8": "lazarus:blocks/infusatron/us",
+        "texture9": "lazarus:blocks/infusatron/uw",
+        "texture10": "lazarus:blocks/infusatron/uu",
+        "texture11": "lazarus:blocks/infusatron/ud",
+        "texture12": "lazarus:blocks/infusatron/tn",
+        "texture13": "lazarus:blocks/infusatron/te",
+        "texture14": "lazarus:blocks/infusatron/ts",
+        "texture15": "lazarus:blocks/infusatron/tw",
+        "texture16": "lazarus:blocks/infusatron/tu",
+        "texture17": "lazarus:blocks/infusatron/td",
+        "texture18": "lazarus:blocks/infusatron/ss",
+        "texture19": "lazarus:blocks/infusatron/se",
+        "texture20": "lazarus:blocks/infusatron/sn",
+        "texture21": "lazarus:blocks/infusatron/keypad",
+        "texture22": "lazarus:blocks/infusatron/button",
+        "texture23": "lazarus:blocks/infusatron/vent"
+    },
+    "elements": [
+        {
+            "name": "Bottom",
+            "from": [ 1.0, 0.0, 4.0 ], 
+            "to": [ 14.0, 12.0, 12.0 ], 
+            "faces": {
+                "north": { "texture": "#texture0", "uv": [ 0.0, 0.0, 14.0, 12.0 ]},
+                "east": { "texture": "#texture1", "uv": [ 0.0, 0.0, 8.0, 12.0 ] },
+                "south": { "texture": "#texture2", "uv": [ 0.0, 0.0, 14.0, 12.0 ] },
+                "west": { "texture": "#texture3", "uv": [ 0.0, 0.0, 8.0, 12.0 ] },
+                "up": { "texture": "#texture4", "uv": [ 0.0, 0.0, 14.0, 8.0 ] },
+                "down": { "texture": "#texture5", "uv": [ 0.0, 0.0, 14.0, 8.0 ] }
+            }
+        },
+        
+        {
+            "name": "Screen",
+            "from": [ 0.0, 12.0, 3.0 ], 
+            "to": [ 10.0, 26.0, 13.0 ], 
+            "faces": {
+                "north": { "texture": "#texture8", "uv": [ 0.0, 0.0, 10.0, 14.0 ] },
+                "east": { "texture": "#texture8", "uv": [ 0.0, 0.0, 10.0, 14.0 ] },
+                "south": { "texture": "#texture8", "uv": [ 0.0, 0.0, 10.0, 14.0 ] },
+                "west": { "texture": "#texture8", "uv": [ 0.0, 0.0, 10.0, 14.0 ] },
+                "up": { "texture": "#texture10", "uv": [ 0.0, 0.0, 10.0, 10.0 ] },
+                "down": { "texture": "#texture10", "uv": [ 0.0, 0.0, 10.0, 10.0 ] }
+            }
+        },
+        
+        {
+            "name": "top",
+            "from": [ 1.0, 26.0, 4.0 ], 
+            "to": [ 14.0, 28.0, 12.0 ], 
+            "faces": {
+                "north": { "texture": "#texture12", "uv": [ 0.0, 0.0, 13.0, 2.0 ], "cullface": "north" },
+                "east": { "texture": "#texture13", "uv": [ 0.0, 0.0, 8.0, 2.0 ] },
+                "south": { "texture": "#texture14", "uv": [ 0.0, 0.0, 13.0, 2.0 ] },
+                "west": { "texture": "#texture15", "uv": [ 0.0, 0.0, 8.0, 2.0 ] },
+                "up": { "texture": "#texture16", "uv": [ 0.0, 0.0, 13.0, 8.0 ] },
+                "down": { "texture": "#texture17", "uv": [ 0.0, 0.0, 13.0, 8.0 ] }
+            }
+        },
+        {
+            "name": "side",
+            "from": [ 10.0, 12.0, 4.0 ], 
+            "to": [ 14.0, 26.0, 8.0 ], 
+            "faces": {
+                "north": { "texture": "#texture20", "uv": [ 0.0, 0.0, 4.0, 14.0 ] },
+                "east": { "texture": "#texture19", "uv": [ 0.0, 0.0, 4.0, 14.0 ] },
+                "south": { "texture": "#texture18", "uv": [ 0.0, 0.0, 4.0, 14.0 ] },
+                "west": { "texture": "#texture19", "uv": [ 0.0, 0.0, 4.0, 14.0 ] },
+                "up": { "texture": "#-1", "uv": [ 0.0, 0.0, 4.0, 4.0 ] },
+                "down": { "texture": "#-1", "uv": [ 0.0, 0.0, 4.0, 4.0 ] }
+            }
+        },
+        {
+            "name": "keypad",
+            "from": [ 11.0, 16.0, 8.0 ], 
+            "to": [ 13.0, 19.0, 9.0 ], 
+            "faces": {
+                "north": { "texture": "#-1", "uv": [ 0.0, 0.0, 2.0, 3.0 ] },
+                "east": { "texture": "#texture21", "uv": [ 8.0, 0.0, 9.0, 3.0 ] },
+                "south": { "texture": "#texture21", "uv": [ 0.0, 0.0, 8.0, 12.0 ] },
+                "west": { "texture": "#texture21", "uv": [ 8.0, 0.0, 9.0, 3.0 ] },
+                "up": { "texture": "#texture21", "uv": [ 9.0, 0.0, 11.0, 1.0 ] },
+                "down": { "texture": "#texture21", "uv": [ 9.0, 0.0, 11.0, 1.0 ] }
+            }
+        },
+        {
+            "name": "button1",
+            "from": [ 11.0, 21.0, 8.0 ], 
+            "to": [ 13.0, 23.0, 9.0 ], 
+            "faces": {
+                "north": { "texture": "#-1", "uv": [ 12.0, 0.0, 2.0, 1.5000000000000004 ] },
+                "east": { "texture": "#texture22", "uv": [ 12.0, 0.0, 14.0, 1.5 ] },
+                "south": { "texture": "#texture22", "uv": [ 0.0, 0.0, 12.0, 12.0 ] },
+                "west": { "texture": "#texture22", "uv": [ 12.0, 0.0, 14.0, 1.5 ] },
+                "up": { "texture": "#texture22", "uv": [ 12.0, 0.0, 14.0, 1.5000000000000004 ] },
+                "down": { "texture": "#texture22", "uv": [ 12.0, 0.0, 14.0, 1.5000000000000004 ] }
+            }
+        },
+        {
+            "name": "sideVent",
+            "from": [ 14.0, 1.0, 5.0 ], 
+            "to": [ 15.0, 8.0, 11.0 ], 
+            "faces": {
+                "north": { "texture": "#texture23", "uv": [ 12.0, 0.0, 13.0, 7.0 ] },
+                "east": { "texture": "#texture23", "uv": [ 0.0, 0.0, 12.0, 14.0 ] },
+                "south": { "texture": "#texture23", "uv": [ 12.0, 0.0, 13.0, 7.0 ] },
+                "west": { "texture": "#-1", "uv": [ 0.0, 0.0, 6.0, 7.0 ] },
+                "up": { "texture": "#texture23", "uv": [ 12.0, 0.0, 13.0, 6.0 ] },
+                "down": { "texture": "#texture23", "uv": [ 12.0, 0.0, 13.0, 6.0 ] }
+            }
+        }
+    ]
+}
